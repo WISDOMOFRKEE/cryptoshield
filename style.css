@@ -390,9 +390,9 @@ header{
 }
 
         .slider {
-            width: 60%;
+            width: 100%;
             overflow: hidden;
-            position: relative;
+            position: center;
         }
         .slides {
             display: flex;
