@@ -67,6 +67,7 @@ header{
 
 .navLogo{
    margin-bottom: 3rem;
+   float: right; /* This will align the logo to the right */
 }
 
 .nav-link{
