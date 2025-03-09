@@ -83,7 +83,7 @@
                 <img src="./img/ethereum-icon.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Fake Wallet Transfers</h1>
-                    <p class="carouselPara">Fake wallet transfers are a common scam, especially in the crypto space. </p>
+                    <p class="carouselPara">Fake wallet transfers are a common scam,. </p>
                     <div class="carouselPrice">
                         <h4>Solved Cases</h4>
                         <span class="rect"></span>
@@ -276,6 +276,31 @@
         </div>
 
     </section>
+	
+	    <div class="slider">
+        <div class="slides">
+            <div class="slide active">"Crypto Shield recovered my lost Bitcoin in record time! Highly recommended." - John D. (USA)</div>
+            <div class="slide">"Amazing service! Fast and reliable, got my stolen crypto back in just days." - Lisa T. (Canada)</div>
+            <div class="slide">"Customer support is outstanding. They guided me through every step." - Mark W. (UK)</div>
+            <div class="slide">"Best decision ever! Crypto Shield helped me retrieve funds I thought were gone forever." - Sarah M. (Australia)</div>
+            <div class="slide">"Professional and efficient, I felt secure knowing they were handling my case." - Alex P. (Germany)</div>
+            <div class="slide">"Crypto Shield exceeded my expectations. True lifesavers!" - Emily R. (South Africa)</div>
+            <div class="slide">"They work fast and keep you updated. Fantastic service!" - Brian H. (Brazil)</div>
+            <div class="slide">"Highly recommended if you've lost crypto. They recovered mine!" - Olivia N. (Japan)</div>
+            <div class="slide">"I was skeptical, but they proved me wrong. Crypto Shield delivers!" - Daniel G. (India)</div>
+            <div class="slide">"Worth every penny. Their recovery speed is incredible!" - Jessica B. (France)</div>
+            <div class="slide">"Their team is highly skilled. I got my lost Ethereum back!" - Tom V. (Nigeria)</div>
+            <div class="slide">"Crypto Shield is the best in the industry. Excellent support!" - Mike S. (Mexico)</div>
+            <div class="slide">"They recovered my USDT in just a few days. I'm beyond grateful!" - Nancy L. (Russia)</div>
+            <div class="slide">"I thought my funds were gone forever, but Crypto Shield made the impossible happen." - George K. (China)</div>
+            <div class="slide">"Very professional and transparent. No hidden fees!" - Sophia W. (Italy)</div>
+            <div class="slide">"Honest and reliable. They recovered my stolen crypto with ease." - Eric C. (Argentina)</div>
+            <div class="slide">"Great communication and efficiency. I'm recommending them to everyone!" - Alice F. (Indonesia)</div>
+            <div class="slide">"Lost hope until Crypto Shield came through. Excellent work!" - Kevin J. (UAE)</div>
+            <div class="slide">"A trustworthy service in a shady industry. Crypto Shield delivers results." - Monica H. (Kenya)</div>
+            <div class="slide">"Five stars! Fast, professional, and effective." - Peter Q. (South Korea)</div>
+        </div>
+    </div>
 
     <div class="fundSection">
         <div class="sectionDesc">
@@ -391,6 +416,20 @@
     </footer>
     
 
-    <script src="./script.js"></script>
+    <script src="./script.js"></script> 
+	
+	    <script>
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showNextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 3000);
+    </script>
+	
 </body>
 </html>
