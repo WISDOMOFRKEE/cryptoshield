@@ -67,7 +67,6 @@ header{
 
 .navLogo{
    margin-bottom: 3rem;
-   float: right; /* This will align the logo to the right */
 }
 
 .nav-link{
@@ -168,12 +167,6 @@ header{
     border-radius: 20px;
     scroll-behavior: smooth;
 }
-
-@keyframes autoScroll {
-    0% { transform: translateX(0); }
-    33% { transform: translateX(-100%); }
-    66% { transform: translateX(-200%); }
-    100% { transform: translateX(0); } /* Loop back */
 
 
 .eachCarousel{
