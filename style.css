@@ -67,6 +67,7 @@ header{
 
 .navLogo{
    margin-bottom: 3rem;
+
 }
 
 .nav-link{
@@ -382,6 +383,32 @@ header{
         order: 0;
     }
 }
+
+        .slider {
+            width: 60%;
+            overflow: hidden;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100px;
+        }
+        .slide {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+        }
 
 
 /* Funds */
@@ -845,3 +872,4 @@ footer{
         font-size: 3.5rem;
     }
 }
+
