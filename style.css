@@ -169,6 +169,23 @@ header{
     scroll-behavior: smooth;
 }
 
+.carousel-wrapper {
+    display: flex;
+    width: 300%; /* Adjust based on the number of items */
+    animation: autoScroll 9s infinite linear; /* 3s per scroll */
+}
+
+.eachCarousel .carousel-item {
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+@keyframes autoScroll {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); } /* Loop back */
+
 
 .eachCarousel{
     background-color: var(--lightgrey);
